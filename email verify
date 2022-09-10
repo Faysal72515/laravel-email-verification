@@ -1,0 +1,6 @@
+// Model preparation 
+
+step 1: Add--->   use Illuminate\Contracts\Auth\MustVerifyEmail   --> to --> App\User 
+step 2: include  MustVerifyEmail in ths "class User extends Authenticatable" line -> [class User extends Authenticatable implements MustVerifyEmail]
+step 3: Go to web.php and insert ['verify' => true] into Auth:routes()  -> like this  -->    Auth::routes(['verify' => true]);
+step 4: Then finally go to HomeController and write $this->middleware(['auth', 'verified']); except the   $this->middleware('auth');
